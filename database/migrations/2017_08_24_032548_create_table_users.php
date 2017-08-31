@@ -35,7 +35,6 @@ class CreateTableUsers extends Migration
             $table->integer('code')->primary('code')->index();
             $table->string('name');
             $table->text('desc');
-
         });
 
         Schema::create('Users', function (Blueprint $table) {
