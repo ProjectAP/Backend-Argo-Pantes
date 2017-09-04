@@ -13,17 +13,31 @@ class CreateTableUsers extends Migration
      */
     public function up()
     {
+        Schema::create('Company', function (Blueprint $table) {
+            $table->integer('code')->primary('code')->index();
+            $table->string('name');
+            $table->text('desc');
+        });
+
+        Schema::create('Department', function (Blueprint $table) {
+            $table->integer('code')->primary('code')->index();
+            $table->string('name');
+            $table->string('section');
+            $table->text('desc');
+        });
+
+        Schema::create('Position', function (Blueprint $table) {
+            $table->integer('code')->primary('code')->index();
+            $table->string('name');
+            $table->text('desc');
+        });
+        
         Schema::create('Employees', function (Blueprint $table) {
             $table->string('nik')->primary('nik')->index();
             $table->string('name');
-            $table->integer('comp');
-            // $table->foreign('comp')->references('code')->on('Company');
-            $table->integer('dept');
-            // $table->foreign('dept')->references('code')->on('Department');
-            /*$table->integer('section');
-            $table->foreign('section')->references('code')->on('Section');*/
-            $table->integer('pos');
-            // $table->foreign('pos')->references('code')->on('Position');
+            $table->integer('comp')->references('code')->on('Company');
+            $table->integer('dept')->references('code')->on('Department');
+            $table->integer('pos')->references('code')->on('Position');
             $table->string('ext');
             $table->string('phone');
             $table->integer('gender');
@@ -56,5 +70,8 @@ class CreateTableUsers extends Migration
         Schema::dropIfExists('Users');
         Schema::dropIfExists('Level_user');
         Schema::dropIfExists('Employees');
+        Schema::dropIfExists('Position');
+        Schema::dropIfExists('Department');
+        Schema::dropIfExists('Company');
     }
 }
