@@ -17,6 +17,7 @@ class CreateTableUsers extends Migration
             $table->integer('code')->primary('code')->index();
             $table->string('name');
             $table->text('desc');
+            $table->timestamps();
         });
 
         Schema::create('Department', function (Blueprint $table) {
@@ -24,12 +25,14 @@ class CreateTableUsers extends Migration
             $table->string('name');
             $table->string('section');
             $table->text('desc');
+            $table->timestamps();
         });
 
         Schema::create('Position', function (Blueprint $table) {
             $table->integer('code')->primary('code')->index();
             $table->string('name');
             $table->text('desc');
+            $table->timestamps();
         });
         
         Schema::create('Employees', function (Blueprint $table) {
@@ -43,12 +46,14 @@ class CreateTableUsers extends Migration
             $table->integer('gender');
             $table->string('photo');
             $table->string('mother');
+            $table->timestamps();
         });
 
         Schema::create('Level_user', function (Blueprint $table) {
             $table->integer('code')->primary('code')->index();
             $table->string('name');
             $table->text('desc');
+            $table->timestamps();
         });
 
         Schema::create('Users', function (Blueprint $table) {
@@ -57,6 +62,7 @@ class CreateTableUsers extends Migration
             $table->string('pass');
             $table->integer('level')->foreign('level')->references('code')->on('Level_user');
             $table->integer('status')->unsigned()->default(0);
+            $table->timestamps();
         });
     }
 
