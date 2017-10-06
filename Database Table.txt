@@ -1,0 +1,78 @@
+Database Table
+===================================
+
+* zizaco/entrust
+* dingo/api
+* oath2
+* token
+
+Users
+# nik
+- password
+- level
+- status
+
+Level_user
+# code
+- name
+- desc
+
+Employees
+# nik
+- name
+- email
+- comp
+- dept
+- section
+- pos
+- ext
+- phone
+- gender
+- photo
+- mother
+
+Department
+# code
+- name
+- section
+- desc
+
+Company
+# code
+- name
+- desc
+
+Position
+# code
+- name
+- section
+- desc
+
+IT_Request
+# no_id?
+- nik
+- engineer
+- status
+- approve
+
+IT_HW_req
+# no_id?
+- code_IT_HW_list
+- name
+- note
+- status
+
+IT_SW_req
+# no_id?
+- name
+- note
+
+IT_HW_list
+# code
+- name
+- desc
+
+Approve
+# no_id?
+- nik
+- approve
